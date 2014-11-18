@@ -61,6 +61,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\Class\Controller.cs" />
+    <Compile Include="Core\Class\PluginManager.cs" />
+    <Compile Include="Core\Factory\ModelFactory.cs" />
+    <Compile Include="Core\Interface\IModel.cs" />
+    <Compile Include="Core\Interface\IModelManager.cs" />
+    <Compile Include="Core\Interface\IPlugin.cs" />
+    <Compile Include="Core\Interface\IPluginManager.cs" />
+    <Compile Include="Core\Interface\IWindow.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
