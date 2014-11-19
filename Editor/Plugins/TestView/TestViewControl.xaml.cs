@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SoftwareArchitecturesHomework.Editor.UI.Test
+namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
 {
     /// <summary>
     /// Interaction logic for TestControl.xaml
     /// </summary>
-    public partial class TestControl : UserControl
+    public partial class TestViewControl : UserControl
     {
-        public TestControl()
+        public TestViewControl()
         {
             InitializeComponent();
         }

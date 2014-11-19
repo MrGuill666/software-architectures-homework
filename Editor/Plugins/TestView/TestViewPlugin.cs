@@ -1,6 +1,5 @@
 ﻿using SoftwareArchitecturesHomework.Editor.Core.Interface;
 using SoftwareArchitecturesHomework.Editor.UI;
-using SoftwareArchitecturesHomework.Editor.UI.Test;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +7,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace SoftwareArchitecturesHomework.Editor.Plugins
+namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
 {
-    class TestPlugin:IPlugin
+    class TestViewPlugin:IPlugin
     {
         String name;
         UserControl component;
-        public TestPlugin(String name)
+        public TestViewPlugin(String name)
         {
             this.name = name;
         }
         public void Initialize(IModelManager modelManager)
         {
-            component = new TestControl();
+            component = new TestViewControl();
         }
 
         public string GetName()

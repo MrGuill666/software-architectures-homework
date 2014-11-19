@@ -1,5 +1,6 @@
 ﻿using SoftwareArchitecturesHomework.Editor.Core.Interface;
 using SoftwareArchitecturesHomework.Editor.Plugins;
+using SoftwareArchitecturesHomework.Editor.Plugins.Test;
 using System;
 using System.Collections.Generic;
 using System.Linq;
