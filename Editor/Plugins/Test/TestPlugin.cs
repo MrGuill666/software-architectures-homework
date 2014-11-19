@@ -37,9 +37,9 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.Test
             
         }
 
-        public void HandleEditEvent()
+        public void HandleEditEvent(IPlugin senderPlugin, System.Windows.Point position, object sender, System.Windows.Input.MouseEventArgs e)
         {
-            
+            Console.WriteLine(position);
         }
 
 

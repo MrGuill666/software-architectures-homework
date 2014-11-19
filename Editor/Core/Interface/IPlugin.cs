@@ -19,6 +19,6 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Interface
         System.Windows.Controls.UserControl GetComponent(); 
         PluginType GetPreferredType();
         void Refresh();
-        void HandleEditEvent(); //paramétert kitalálni
+        void HandleEditEvent(IPlugin senderplugin, System.Windows.Point position, object sender, System.Windows.Input.MouseEventArgs e); 
     }
 }

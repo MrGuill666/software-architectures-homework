@@ -30,13 +30,7 @@ namespace SoftwareArchitecturesHomework.Editor
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var item = "hello";
-            this.pluginsListBox.Items.Add(item);
-        }
-
-        private void pluginsListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void pluginsListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             int index = this.pluginsListBox.SelectedIndex;
             if (index >= 0)
@@ -98,6 +92,7 @@ namespace SoftwareArchitecturesHomework.Editor
         {
             var controller = new Controller();
             var pluginManager = new PluginManager();
+            pluginManager.Initialize(controller);
             pluginManager.LoadPlugins();
             controller.Initialize(this, pluginManager);
             pluginManager.Initialize(controller);

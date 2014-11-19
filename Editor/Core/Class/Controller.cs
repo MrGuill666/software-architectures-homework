@@ -24,9 +24,9 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
             pluginManager.GetActivePlugins().ForEach(plugin=>plugin.Refresh());
         }
 
-        public void HandleEditEvent()
+        public void HandleEditEvent(IPlugin senderPlugin, System.Windows.Point position, object sender, System.Windows.Input.MouseEventArgs e)
         {
-            pluginManager.GetActivePlugins().ForEach(plugin => plugin.HandleEditEvent());
+            pluginManager.GetActivePlugins().ForEach(plugin => plugin.HandleEditEvent(senderPlugin, position,sender, e));
         }
 
         public IModel GetModel()

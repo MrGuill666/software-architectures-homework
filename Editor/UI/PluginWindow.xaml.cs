@@ -31,13 +31,13 @@ namespace SoftwareArchitecturesHomework.Editor.UI
         {
             this.plugin = plugin;
             this.pluginManager = pluginManager;
-            canvas.Children.Add(plugin.GetComponent());
+            grid.Children.Add(plugin.GetComponent());
             this.Title= plugin.GetName();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            canvas.Children.Clear();
+            grid.Children.Clear();
             pluginManager.ActivatePlugin(plugin, false);
         }
 

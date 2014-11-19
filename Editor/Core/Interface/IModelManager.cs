@@ -8,7 +8,7 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Interface
     public interface IModelManager
     {
         void ModelChanged();
-        void HandleEditEvent(); //paramétert még ki kell találni
+        void HandleEditEvent(IPlugin senderPlugin, System.Windows.Point position, object sender, System.Windows.Input.MouseEventArgs e);
         IModel GetModel();
         void SetModel(IModel model);
     }

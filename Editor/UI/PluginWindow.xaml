@@ -5,8 +5,5 @@
         Closing="Window_Closing"
         
         >
-    <Grid>
-        <Canvas Name="canvas"/>
-
-    </Grid>
+    <Grid Name="grid"/>
 </Window>
