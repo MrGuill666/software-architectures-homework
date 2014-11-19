@@ -1,0 +1,12 @@
+﻿<Window x:Class="SoftwareArchitecturesHomework.Editor.UI.PluginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PluginWindow" Height="300" Width="300"
+        Closing="Window_Closing"
+        
+        >
+    <Grid>
+        <Canvas Name="canvas" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="292"/>
+
+    </Grid>
+</Window>

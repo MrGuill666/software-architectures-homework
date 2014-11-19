@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SoftwareArchitecturesHomework.Editor.Core.Interface
 {
-    interface IPluginManager
+    public interface IPluginManager
     {
         void Initialize(IModelManager modelManager);
         List<IPlugin> GetPlugins();

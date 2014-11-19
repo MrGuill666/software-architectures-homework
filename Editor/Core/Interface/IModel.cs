@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SoftwareArchitecturesHomework.Editor.Core.Interface
 {
-    interface IModel
+    public interface IModel
     {
         void Initialize(IModelManager modelManager);
     }

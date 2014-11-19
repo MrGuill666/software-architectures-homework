@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftwareArchitecturesHomework.Editor.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace SoftwareArchitecturesHomework.Editor.Core.Interface
 {
-    enum PluginType
+    public enum PluginType
     {
         Tool, View
     }
 
-    interface IPlugin
+    public interface IPlugin
     {
         void Initialize(IModelManager modelManager);
         String GetName();
-        //Component GetComponent(); 
+        System.Windows.Controls.UserControl GetComponent(); 
         PluginType GetPreferredType();
         void Refresh();
         void HandleEditEvent(); //paramétert kitalálni

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SoftwareArchitecturesHomework.Editor.Core.Interface
 {
-    interface IModelManager
+    public interface IModelManager
     {
         void ModelChanged();
         void HandleEditEvent(); //paramétert még ki kell találni

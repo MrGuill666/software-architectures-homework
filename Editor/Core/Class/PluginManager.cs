@@ -1,4 +1,5 @@
 ﻿using SoftwareArchitecturesHomework.Editor.Core.Interface;
+using SoftwareArchitecturesHomework.Editor.Plugins;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,12 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
 {
     class PluginManager: IPluginManager
     {
-        private IModelManager modelManager;
-        private List<IPlugin> plugins, activePlugins;
+        private IModelManager modelManager=null;
+        private List<IPlugin> plugins = new List<IPlugin>(), activePlugins = new List<IPlugin>();
 
         public void Initialize(IModelManager modelManager)
         {
             this.modelManager = modelManager;
-            plugins=new List<IPlugin>();
-            activePlugins = new List<IPlugin>();
         }
 
         public List<IPlugin> GetPlugins()
@@ -44,6 +43,12 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
         public void LoadPlugins()
         {
             //TODO
+            for (int i = 0; i < 10; i++)
+            {
+                var p = new TestPlugin("TestPlugin" + i);
+                p.Initialize(modelManager);
+                plugins.Add(p);
+            }
         }
     }
 }
