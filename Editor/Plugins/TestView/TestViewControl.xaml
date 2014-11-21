@@ -8,7 +8,7 @@
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Auto">
             <Grid Name="grid">
-                <Image Source="/Resources/bluerings7680x4320.jpg"/>
+                <Image Name="image" Source="/Resources/bluerings7680x4320.jpg"/>
                 <Canvas Name="canvas">
                     <Label Content="Label" Canvas.Left="61" Canvas.Top="75" Foreground="White" />
                 </Canvas>

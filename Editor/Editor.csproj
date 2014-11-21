@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\Class\Model.cs" />
     <Compile Include="Plugins\TestView\TestViewControl.xaml.cs">
       <DependentUpon>TestViewControl.xaml</DependentUpon>
     </Compile>

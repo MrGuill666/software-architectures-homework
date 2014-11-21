@@ -34,6 +34,7 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
             else if(active&&!activePlugins.Contains(plugin))
             {
                 activePlugins.Add(plugin);
+                plugin.Refresh();
             }
         }
 

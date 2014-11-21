@@ -57,12 +57,13 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
 
         public void Refresh()
         {
-            
+            IModel model=modelManager.GetModel();
+            component.image.Source=model.GetImage();
         }
 
         public void HandleEditEvent(IPlugin senderPlugin, System.Windows.Point position, object sender, System.Windows.Input.MouseEventArgs e)
         {
-            //Console.WriteLine(e.GetPosition(component.grid).ToString());
+
         }
 
 

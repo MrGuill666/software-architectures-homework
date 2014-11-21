@@ -7,7 +7,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Label Content="TestControl" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="280" Width="123"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="138,13,0,0" VerticalAlignment="Top" Width="152" Height="92"/>
+        <Button Content="Load from image" Name="loadFromImageButton" HorizontalAlignment="Left" Margin="138,13,0,0" VerticalAlignment="Top" Width="152" Height="92"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="188,182,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>

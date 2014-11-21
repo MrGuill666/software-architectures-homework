@@ -1,4 +1,5 @@
-﻿using SoftwareArchitecturesHomework.Editor.Core.Interface;
+﻿using SoftwareArchitecturesHomework.Editor.Core.Factory;
+using SoftwareArchitecturesHomework.Editor.Core.Interface;
 using SoftwareArchitecturesHomework.Editor.UI;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,29 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.Test
     class TestPlugin:IPlugin
     {
         String name;
-        UserControl component;
+        TestControl component;
+        IModelManager modelManager;
         public TestPlugin(String name)
         {
             this.name = name;
         }
         public void Initialize(IModelManager modelManager)
         {
+            this.modelManager = modelManager;
             component = new TestControl();
+            component.loadFromImageButton.Click += loadFromImageButton_Click;
+        }
+
+        void loadFromImageButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ModelFactory mf=new ModelFactory();
+            var dlg = new Microsoft.Win32.OpenFileDialog();
+
+            if (dlg.ShowDialog()==true)
+            {
+                modelManager.SetModel(mf.CreateModelFromImage(dlg.FileName));
+            }
+            
         }
 
         public string GetName()
