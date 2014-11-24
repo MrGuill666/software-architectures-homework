@@ -12,12 +12,12 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Factory
     {
         public IModel CreateModel()
         {
-            return null; //unimplemented
+            return new Model();
         }
         public IModel CreateModelFromImage(String path)
         {
             var model=new Model();
-             model.SetImage(new System.Windows.Media.Imaging.BitmapImage(new System.Uri(path)));
+             model.Image=new System.Windows.Media.Imaging.BitmapImage(new System.Uri(path));
              return model;
         }
     }

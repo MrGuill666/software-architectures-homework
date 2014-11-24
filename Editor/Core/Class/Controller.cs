@@ -1,4 +1,5 @@
-﻿using SoftwareArchitecturesHomework.Editor.Core.Interface;
+﻿using SoftwareArchitecturesHomework.Editor.Core.Factory;
+using SoftwareArchitecturesHomework.Editor.Core.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
         {
             this.pluginManager = pluginManager;
             this.window = window;
+            this.model=new ModelFactory().CreateModel();
         }
 
         public void ModelChanged()

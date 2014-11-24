@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
 {
@@ -25,6 +27,7 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
             this.component.grid.PreviewMouseDown += component_MouseDown;
             this.component.grid.PreviewMouseUp += component_MouseUp;
             this.component.grid.MouseMove += component_MouseMove;
+            
         }
         private bool pressed=false;
         private void component_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -58,7 +61,26 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
         public void Refresh()
         {
             IModel model=modelManager.GetModel();
-            component.image.Source=model.GetImage();
+            if(model==null) return;
+            var img=model.Image;
+            if (img == null) return;
+            component.image.Source=img;
+            
+            
+
+            foreach(var b in model.Blobs)
+            {
+                
+            }
+
+           // if(model.TemporaryBlob!=null)
+            //{
+                component.tempblob.Source = model.TemporaryBlob;
+
+            //}
+
+            
+
         }
 
         public void HandleEditEvent(IPlugin senderPlugin, System.Windows.Point position, object sender, System.Windows.Input.MouseEventArgs e)

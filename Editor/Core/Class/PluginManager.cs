@@ -59,6 +59,8 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
             p = new TestPlugin("TestPlugin");
             p.Initialize(modelManager);
             plugins.Add(p);
+
+            
         }
     }
 }
