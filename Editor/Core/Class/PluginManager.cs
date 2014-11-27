@@ -45,13 +45,42 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
 
         public void LoadPlugins()
         {
-            //TODO
-            /*for (int i = 0; i < 10; i++)
+            IEnumerable<string> pluginAssemblies;
+            try
             {
-                var p = new TestViewPlugin("TestViewPlugin" + i);
-                p.Initialize(modelManager);
-                plugins.Add(p);
-            }*/
+                pluginAssemblies = System.IO.Directory.EnumerateFiles("plugins", "*.dll", System.IO.SearchOption.AllDirectories);
+            }
+            catch
+            {
+                pluginAssemblies = Enumerable.Empty<string>();
+            }
+
+            var pluginTypes = pluginAssemblies.SelectMany(file =>
+            {
+                try
+                {
+                    return Enumerable.Repeat(System.Reflection.Assembly.LoadFrom(file), 1);
+                }
+                catch
+                {
+                    return Enumerable.Empty<System.Reflection.Assembly>();
+                }
+            }).SelectMany(assembly => assembly.ExportedTypes.Where(type => (type.IsClass || type.IsValueType) && !type.IsAbstract && type.GetInterfaces().Any(typeof(IPlugin).Equals)));
+
+            foreach (var pluginType in pluginTypes)
+            {
+                try
+                {
+                    var plugin = (IPlugin)pluginType.GetConstructor(Type.EmptyTypes).Invoke(null);
+                    plugin.Initialize(modelManager);
+                    plugins.Add(plugin);
+                }
+                catch
+                {
+                    // TODO: log loading error
+                }
+            }
+            
             IPlugin p = new TestViewPlugin("TestViewPlugin");
             p.Initialize(modelManager);
             plugins.Add(p);
