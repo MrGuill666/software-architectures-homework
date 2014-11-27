@@ -1,4 +1,5 @@
-﻿using SoftwareArchitecturesHomework.Editor.Core.Interface;
+﻿using SoftwareArchitecturesHomework.Editor.Core.Factory;
+using SoftwareArchitecturesHomework.Editor.Core.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
         {
             this.pluginManager = pluginManager;
             this.window = window;
+            this.model=new ModelFactory().CreateModel();
         }
 
         public void ModelChanged()
@@ -24,9 +26,9 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
             pluginManager.GetActivePlugins().ForEach(plugin=>plugin.Refresh());
         }
 
-        public void HandleEditEvent()
+        public void HandleEditEvent(IPlugin senderPlugin, System.Windows.Point position, object sender, System.Windows.Input.MouseEventArgs e)
         {
-            pluginManager.GetActivePlugins().ForEach(plugin => plugin.HandleEditEvent());
+            pluginManager.GetActivePlugins().ForEach(plugin => plugin.HandleEditEvent(senderPlugin, position,sender, e));
         }
 
         public IModel GetModel()

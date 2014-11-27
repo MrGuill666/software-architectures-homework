@@ -24,5 +24,6 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
         {
             InitializeComponent();
         }
+
     }
 }

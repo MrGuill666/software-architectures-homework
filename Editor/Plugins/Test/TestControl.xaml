@@ -4,11 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" Width="132">
     <Grid>
-        <Label Content="TestControl" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="280" Width="123"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="138,13,0,0" VerticalAlignment="Top" Width="152" Height="92"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="188,182,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Load from image" Name="loadFromImageButton" VerticalAlignment="Top" Height="82" Margin="10,10,10,0"/>
+        <RadioButton Content="Brush" x:Name="Brush" GroupName="Tools" IsChecked="True" Margin="10,216,10,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Eraser" x:Name="Eraser" GroupName="Tools" Margin="10,231,10,0" VerticalAlignment="Top"/>
+        <Slider Name="brushSlider" Minimum="0" Maximum="100" Value="20"  Margin="49,183,0,0" VerticalAlignment="Top" />
+        <Label Content="Size" Margin="0,175,88,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>
