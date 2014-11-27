@@ -6,10 +6,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" Width="132">
     <Grid>
-        <Button Content="Load from image" Name="loadFromImageButton" VerticalAlignment="Top" Height="82" Margin="10,10,10,0"/>
-        <RadioButton Content="Brush" x:Name="Brush" GroupName="Tools" IsChecked="True" Margin="10,216,10,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Eraser" x:Name="Eraser" GroupName="Tools" Margin="10,231,10,0" VerticalAlignment="Top"/>
-        <Slider Name="brushSlider" Minimum="0" Maximum="100" Value="20"  Margin="49,183,0,0" VerticalAlignment="Top" />
+        <Button Content="Load from image" Name="loadFromImageButton" x:FieldModifier="public" VerticalAlignment="Top" Height="82" Margin="10,10,10,0"/>
+        <RadioButton Content="Brush" x:Name="Brush" x:FieldModifier="public" GroupName="Tools" IsChecked="True" Margin="10,216,10,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Eraser" x:Name="Eraser" x:FieldModifier="public" GroupName="Tools" Margin="10,231,10,0" VerticalAlignment="Top"/>
+        <Slider Name="brushSlider" x:FieldModifier="public" Minimum="0" Maximum="100" Value="20"  Margin="49,183,0,0" VerticalAlignment="Top" />
         <Label Content="Size" Margin="0,175,88,0" VerticalAlignment="Top"/>
 
     </Grid>

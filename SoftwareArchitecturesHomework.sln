@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Editor", "Editor\Editor.csproj", "{468BE611-25D1-4CC5-B4B8-949BCD44FB43}"
 EndProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BCD2F9
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoPlugin", "DemoPlugin\DemoPlugin.csproj", "{3B2447B5-185C-4A6F-BF98-3822E8B314DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +24,10 @@ Global
 		{468BE611-25D1-4CC5-B4B8-949BCD44FB43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{468BE611-25D1-4CC5-B4B8-949BCD44FB43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{468BE611-25D1-4CC5-B4B8-949BCD44FB43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B2447B5-185C-4A6F-BF98-3822E8B314DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B2447B5-185C-4A6F-BF98-3822E8B314DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B2447B5-185C-4A6F-BF98-3822E8B314DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B2447B5-185C-4A6F-BF98-3822E8B314DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SoftwareArchitecturesHomework.Editor.Core.Factory
 {
-    class ModelFactory
+    public class ModelFactory
     {
         public IModel CreateModel()
         {

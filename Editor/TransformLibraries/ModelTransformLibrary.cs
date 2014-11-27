@@ -10,7 +10,7 @@ using System.Windows.Media.Imaging;
 
 namespace SoftwareArchitecturesHomework.Editor.TransformLibraries
 {
-    class ModelTransformLibrary
+    public class ModelTransformLibrary
     {
         public static IModel AddPixelsToTempBlob(IModel model, IList<System.Windows.Point> pixels)
         {
