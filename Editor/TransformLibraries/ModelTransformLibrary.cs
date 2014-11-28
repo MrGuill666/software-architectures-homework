@@ -26,7 +26,7 @@ namespace SoftwareArchitecturesHomework.Editor.TransformLibraries
             //pImgData.ToPointer
             int h = tempblob.PixelHeight;
             int w = tempblob.PixelWidth;
-            int[] pixelData = new int[w * h];
+            UInt32[] pixelData = new UInt32[w * h];
             int widthInByte = 4 * w;
 
             tempblob.CopyPixels(pixelData, widthInByte, 0);
@@ -34,7 +34,7 @@ namespace SoftwareArchitecturesHomework.Editor.TransformLibraries
             {
                 if (p.X >= 0 && p.Y >= 0 && p.X < w && p.Y < h)
                 {
-                    var c = 0x00ffffff;
+                    var c =0xff000000;
                     pixelData[(int)p.X + (int)p.Y * w] = c;
                 }
             }
@@ -83,10 +83,15 @@ namespace SoftwareArchitecturesHomework.Editor.TransformLibraries
             return model;
         }
 
-        public static IModel MergeBlobs(IModel model, IList<WriteableBitmap> blobs)
+        public static IList<WriteableBitmap> MergeBlobs(IList<WriteableBitmap> blobs)
         {
-            //TODO
-            return model;
+            if (blobs.Count < 1) return null;
+
+            IList<WriteableBitmap> ret = new List<WriteableBitmap>();
+            var wb = new WriteableBitmap(blobs.First());
+
+
+            return ret;
         }
 
         public static IModel EditBlob(IModel model, WriteableBitmap blob)
@@ -96,13 +101,34 @@ namespace SoftwareArchitecturesHomework.Editor.TransformLibraries
             return model;
         }
 
-        public static WriteableBitmap SelectBlob(IModel model, Point pixel)
+        public static int GetPixel(WriteableBitmap wbm, Point p)
         {
+            int h = wbm.PixelHeight;
+            int w = wbm.PixelWidth;
+            int[] pixelData = new int[w * h];
+            int widthInByte = 4 * w;
+
+            wbm.CopyPixels(pixelData, widthInByte, 0);
+
+            int color=(pixelData[(int)p.X + (int)p.Y * w]);
+
+            return color;
+        }
+
+
+
+        public static IList<WriteableBitmap> GetBlobsSelected(IModel model, Point pixel)
+        {
+            var ret = new List<WriteableBitmap>();
             foreach(var b in model.Blobs)
             {
-               //TODO
+                int c = GetPixel(b, pixel);
+                if((c&0xff000000)>0)
+                {
+                    ret.Add(b);
+                }
             }
-            return null;
+            return ret;
         }
     }
 }

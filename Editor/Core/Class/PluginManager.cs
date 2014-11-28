@@ -60,6 +60,11 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
             p.Initialize(modelManager);
             plugins.Add(p);
 
+            /*
+            p = new TestPlugin("TestPlugin2");
+            p.Initialize(modelManager);
+            plugins.Add(p);*/
+
             
         }
     }

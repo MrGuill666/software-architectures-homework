@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
 {
-    class TestViewPlugin:IPlugin
+    class TestViewPlugin : IPlugin
     {
         String name;
         TestViewControl component;
-        IModelManager modelManager=null;
+        IModelManager modelManager = null;
         public TestViewPlugin(String name)
         {
             this.name = name;
@@ -27,9 +28,9 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
             this.component.grid.PreviewMouseDown += component_MouseDown;
             this.component.grid.PreviewMouseUp += component_MouseUp;
             this.component.grid.MouseMove += component_MouseMove;
-            
+
         }
-        private bool pressed=false;
+        private bool pressed = false;
         private void component_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             pressed = false;
@@ -60,26 +61,31 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
 
         public void Refresh()
         {
-            IModel model=modelManager.GetModel();
-            if(model==null) return;
-            var img=model.Image;
+            IModel model = modelManager.GetModel();
+            if (model == null) return;
+            var img = model.Image;
             if (img == null) return;
-            component.image.Source=img;
-            
-            
+            component.image.Source = img;
 
-            foreach(var b in model.Blobs)
+            int i = 0;
+
+            while (model.Blobs.Count > component.blobs.Children.Count)
             {
-                
+                var rect = new Rectangle();
+                rect.Fill = new SolidColorBrush(Colors.OrangeRed);
+                component.blobs.Children.Add(rect);
+                rect.OpacityMask = new ImageBrush();
             }
 
-           // if(model.TemporaryBlob!=null)
-            //{
-                component.tempblob.Source = model.TemporaryBlob;
+            foreach (var b in model.Blobs)
+            {
+                var ib = (ImageBrush)component.blobs.Children[i].OpacityMask;
+                ib.ImageSource = b;
+                i++;
+            }
 
-            //}
 
-            
+            component.templbob.ImageSource = model.TemporaryBlob;
 
         }
 

@@ -26,6 +26,15 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.Test
             this.modelManager = modelManager;
             component = new TestControl();
             component.loadFromImageButton.Click += loadFromImageButton_Click;
+            component.editFinish.Click += editFinish_Click;
+        }
+
+        void editFinish_Click(object sender, RoutedEventArgs e)
+        {
+            var m = modelManager.GetModel();
+            m.Blobs.Add(m.TemporaryBlob);
+            m.TemporaryBlob = null;
+            modelManager.ModelChanged();
         }
 
         void loadFromImageButton_Click(object sender, System.Windows.RoutedEventArgs e)

@@ -9,10 +9,15 @@
         <ScrollViewer HorizontalScrollBarVisibility="Auto">
             <Grid Name="grid">
                 <Image Name="image"/>
-                <Canvas Name="canvas">
-                    
-                </Canvas>
-                <Image x:Name="tempblob"/>
+                <Grid Name="blobs">
+                </Grid>
+                <Rectangle x:Name="tempLayer" Fill="#FF4A4AFF" >
+                    <Rectangle.OpacityMask>
+                        <ImageBrush x:Name="templbob" Stretch="None"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+               
+
             </Grid>
         </ScrollViewer>
     </Grid>

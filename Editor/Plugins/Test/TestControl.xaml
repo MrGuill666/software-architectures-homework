@@ -6,11 +6,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" Width="132">
     <Grid>
-        <Button Content="Load from image" Name="loadFromImageButton" VerticalAlignment="Top" Height="82" Margin="10,10,10,0"/>
+        <Button Content="Load from image" Name="loadFromImageButton" VerticalAlignment="Top" Height="23" Margin="10,10,10,0"/>
+        <Button Content="Finish edit" Margin="10,38,10,0" VerticalAlignment="Top" x:Name="editFinish"/>
         <RadioButton Content="Brush" x:Name="Brush" GroupName="Tools" IsChecked="True" Margin="10,216,10,0" VerticalAlignment="Top"/>
         <RadioButton Content="Eraser" x:Name="Eraser" GroupName="Tools" Margin="10,231,10,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Select" x:Name="Select" GroupName="Tools" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top"/>
         <Slider Name="brushSlider" Minimum="0" Maximum="100" Value="20"  Margin="49,183,0,0" VerticalAlignment="Top" />
         <Label Content="Size" Margin="0,175,88,0" VerticalAlignment="Top"/>
+        
+
 
     </Grid>
 </UserControl>

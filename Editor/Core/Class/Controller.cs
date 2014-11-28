@@ -28,6 +28,7 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
 
         public void HandleEditEvent(IPlugin senderPlugin, System.Windows.Point position, object sender, System.Windows.Input.MouseEventArgs e)
         {
+            if (model.Image == null) return;
             pluginManager.GetActivePlugins().ForEach(plugin => plugin.HandleEditEvent(senderPlugin, position,sender, e));
         }
 
