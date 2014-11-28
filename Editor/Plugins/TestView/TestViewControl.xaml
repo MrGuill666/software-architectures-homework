@@ -16,8 +16,6 @@
                         <ImageBrush x:Name="templbob" Stretch="None"/>
                     </Rectangle.OpacityMask>
                 </Rectangle>
-               
-
             </Grid>
         </ScrollViewer>
     </Grid>

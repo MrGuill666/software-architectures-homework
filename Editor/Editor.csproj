@@ -58,7 +58,6 @@
       <DependentUpon>TestViewControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Plugins\TestView\TestViewPlugin.cs" />
-    <Compile Include="TransformLibraries\ModelTransformLibrary.cs" />
     <Compile Include="UI\PluginWindow.xaml.cs">
       <DependentUpon>PluginWindow.xaml</DependentUpon>
     </Compile>
@@ -127,7 +126,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Resource Include="Resources\bluerings7680x4320.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

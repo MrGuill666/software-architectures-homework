@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace SoftwareArchitecturesHomework.Editor.Core.Class
@@ -14,8 +12,7 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
     class Model: IModel
     {
         BitmapImage img=null;
-      //  List<List<System.Windows.Point>> blobs=new List<List<System.Windows.Point>>();
-        List<WriteableBitmap> masks = new List<WriteableBitmap>();
+        List<List<System.Windows.Point>> blobs=new List<List<System.Windows.Point>>();
         IModelManager modelManager=null;
 
         public void Initialize(IModelManager modelManager)
@@ -24,37 +21,21 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
         }
 
 
-    
-        
-        public List<WriteableBitmap> GetBlobs()
+        public BitmapImage GetImage()
         {
-            return masks;
+            return img;
+        }
+
+        public List<List<System.Windows.Point>> GetBlobs()
+        {
+            return blobs;
         }
 
 
-        public BitmapImage Image
-        {
-            get
-            {
-                return img;
-            }
-            set
-            {
-                img = value;
-            }
-        }
 
-        public List<WriteableBitmap> Blobs
+        public void SetImage(BitmapImage img)
         {
-            get { return masks; }
-        }
-
-
-        private WriteableBitmap tempblob = null;
-        public WriteableBitmap TemporaryBlob
-        {
-            get { return tempblob; }
-            set { tempblob = value; }
+            this.img = img;
         }
     }
 }
