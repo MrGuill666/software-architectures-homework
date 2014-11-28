@@ -9,9 +9,24 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Interface
     public interface IModel
     {
         void Initialize(IModelManager modelManager);
-        
-        BitmapImage GetImage();
-        void SetImage(BitmapImage img);
-        List<List<System.Windows.Point>> GetBlobs();
+
+        BitmapImage Image
+        {
+            get;
+            set;
+        }
+        //       List<List<System.Windows.Point>> GetBlobs();
+
+        List<WriteableBitmap> Blobs
+        {
+            get;
+        }
+        //List<WriteableBitmap> GetBlobs();
+
+        WriteableBitmap TemporaryBlob
+        {
+            get;
+            set;
+        }
     }
 }

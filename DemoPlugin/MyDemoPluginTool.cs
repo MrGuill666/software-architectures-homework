@@ -1,6 +1,6 @@
-﻿using SoftwareArchitecturesHomework.Editor.Core.Factory;
+﻿using MyDemoPluginTool;
+using SoftwareArchitecturesHomework.Editor.Core.Factory;
 using SoftwareArchitecturesHomework.Editor.Core.Interface;
-using SoftwareArchitecturesHomework.Editor.Plugins.Test;
 using SoftwareArchitecturesHomework.Editor.TransformLibraries;
 using System;
 using System.Collections.Generic;
@@ -12,13 +12,13 @@ namespace DemoPlugin
 {
     public class MyDemoPluginTool : IPlugin
     {
-        TestControl _component;
+        MyDemoPluginControl _component;
         private IModelManager _modelManager;
 
         public void Initialize(IModelManager modelManager)
         {
             _modelManager = modelManager;
-            _component = new TestControl();
+            _component = new MyDemoPluginControl();
             _component.loadFromImageButton.Click += loadFromImageButton_Click;
         }
 

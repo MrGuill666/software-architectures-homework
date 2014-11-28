@@ -4,16 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace SoftwareArchitecturesHomework.Editor.Core.Class
 {
 
-    class Model: IModel
+    class Model : IModel
     {
-        BitmapImage img=null;
-        List<List<System.Windows.Point>> blobs=new List<List<System.Windows.Point>>();
-        IModelManager modelManager=null;
+        BitmapImage img = null;
+        //  List<List<System.Windows.Point>> blobs=new List<List<System.Windows.Point>>();
+        List<WriteableBitmap> masks = new List<WriteableBitmap>();
+        IModelManager modelManager = null;
 
         public void Initialize(IModelManager modelManager)
         {
@@ -21,21 +24,37 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
         }
 
 
-        public BitmapImage GetImage()
-        {
-            return img;
-        }
 
-        public List<List<System.Windows.Point>> GetBlobs()
+
+        public List<WriteableBitmap> GetBlobs()
         {
-            return blobs;
+            return masks;
         }
 
 
-
-        public void SetImage(BitmapImage img)
+        public BitmapImage Image
         {
-            this.img = img;
+            get
+            {
+                return img;
+            }
+            set
+            {
+                img = value;
+            }
+        }
+
+        public List<WriteableBitmap> Blobs
+        {
+            get { return masks; }
+        }
+
+
+        private WriteableBitmap tempblob = null;
+        public WriteableBitmap TemporaryBlob
+        {
+            get { return tempblob; }
+            set { tempblob = value; }
         }
     }
 }
