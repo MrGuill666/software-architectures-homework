@@ -17,7 +17,7 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Interface
         }
         //       List<List<System.Windows.Point>> GetBlobs();
 
-        List<WriteableBitmap> Blobs
+        IList<WriteableBitmap> Blobs
         {
             get;
         }
@@ -27,6 +27,11 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Interface
         {
             get;
             set;
+        }
+
+        IList<WriteableBitmap> SelectedBlobs
+        {
+            get;
         }
     }
 }

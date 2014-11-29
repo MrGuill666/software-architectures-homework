@@ -47,6 +47,7 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
         void component_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             pressed = true;
+            modelManager.HandleEditEvent(this, e.GetPosition(component.grid), sender, e);
         }
 
         public string GetName()
@@ -72,15 +73,28 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.TestView
             while (model.Blobs.Count > component.blobs.Children.Count)
             {
                 var rect = new Rectangle();
+                
                 rect.Fill = new SolidColorBrush(Colors.OrangeRed);
                 component.blobs.Children.Add(rect);
                 rect.OpacityMask = new ImageBrush();
+            }
+            while(model.Blobs.Count< component.blobs.Children.Count)
+            {
+                component.blobs.Children.RemoveAt(component.blobs.Children.Count - 1);
             }
 
             foreach (var b in model.Blobs)
             {
                 var ib = (ImageBrush)component.blobs.Children[i].OpacityMask;
                 ib.ImageSource = b;
+                if (model.SelectedBlobs.Contains(b))
+                {
+                    ((SolidColorBrush)((Rectangle) component.blobs.Children[i]).Fill).Color=Colors.Yellow;
+                }
+                else
+                {
+                    ((SolidColorBrush)((Rectangle)component.blobs.Children[i]).Fill).Color = Colors.Green;
+                }
                 i++;
             }
 

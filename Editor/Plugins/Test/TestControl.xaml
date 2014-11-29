@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="6
+             00" d:DesignWidth="300">
     <Grid>
         <Button Content="Load from image" x:Name="loadFromImageButton" VerticalAlignment="Top" Height="23" Margin="10,10,10,0"/>
         <Button Content="Finish edit" Margin="10,38,10,0" VerticalAlignment="Top" x:Name="editFinish"/>
@@ -13,5 +14,8 @@
         <RadioButton Content="Select" x:Name="Select" GroupName="Tools" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top"/>
         <Slider Name="brushSlider" Minimum="0" Maximum="100" Value="20"  Margin="10,167,10,0" VerticalAlignment="Top"/>
         <Label Content="Size" Margin="10,141,0,0" HorizontalAlignment="Left" Width="44" Height="26" VerticalAlignment="Top"/>
+        <Button Content="Edit selected" Margin="10,266,10,0" VerticalAlignment="Top" x:Name="editSelected"/>
+        <Button Content="Merge selected" Margin="10,291,10,0" VerticalAlignment="Top" x:Name="mergeSelected"/>
+        <Button Content="Delete selected" Margin="10,316,10,0" VerticalAlignment="Top" x:Name="deleteSelected"/>
     </Grid>
 </UserControl>

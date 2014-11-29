@@ -26,12 +26,6 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
 
 
 
-        public List<WriteableBitmap> GetBlobs()
-        {
-            return masks;
-        }
-
-
         public BitmapImage Image
         {
             get
@@ -44,7 +38,7 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
             }
         }
 
-        public List<WriteableBitmap> Blobs
+        public IList<WriteableBitmap> Blobs
         {
             get { return masks; }
         }
@@ -55,6 +49,12 @@ namespace SoftwareArchitecturesHomework.Editor.Core.Class
         {
             get { return tempblob; }
             set { tempblob = value; }
+        }
+
+        IList<WriteableBitmap> selected=new List<WriteableBitmap>();
+        public IList<WriteableBitmap> SelectedBlobs
+        {
+            get { return selected; }
         }
     }
 }

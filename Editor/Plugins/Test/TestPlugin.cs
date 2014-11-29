@@ -27,11 +27,44 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.Test
             component = new TestControl();
             component.loadFromImageButton.Click += loadFromImageButton_Click;
             component.editFinish.Click += editFinish_Click;
+            component.editSelected.Click += editSelected_Click;
+            component.mergeSelected.Click += mergeSelected_Click;
+            component.deleteSelected.Click += deleteSelected_Click;
+        }
+
+
+        void deleteSelected_Click(object sender, RoutedEventArgs e)
+        {
+            var model=modelManager.GetModel();
+            foreach(var s in model.SelectedBlobs)
+            {
+                model.Blobs.Remove(s);
+            }
+            model.SelectedBlobs.Clear();
+            modelManager.ModelChanged();
+        }
+
+        void mergeSelected_Click(object sender, RoutedEventArgs e)
+        {
+            var model = modelManager.GetModel();
+            var merged=ModelTransformLibrary.MergeBlobs(model.SelectedBlobs);
+            if (merged == null) return;
+            model.Blobs.Add(merged);
+            deleteSelected_Click(sender, e);
+        }
+
+        void editSelected_Click(object sender, RoutedEventArgs e)
+        {
+            var model = modelManager.GetModel();
+            var merged = ModelTransformLibrary.MergeBlobs(model.SelectedBlobs);
+            model.TemporaryBlob=merged;
+            deleteSelected_Click(sender, e);
         }
 
         void editFinish_Click(object sender, RoutedEventArgs e)
         {
             var m = modelManager.GetModel();
+            if (m.TemporaryBlob == null) return;
             m.Blobs.Add(m.TemporaryBlob);
             m.TemporaryBlob = null;
             modelManager.ModelChanged();
@@ -91,6 +124,22 @@ namespace SoftwareArchitecturesHomework.Editor.Plugins.Test
             else if(component.Eraser.IsChecked==true)
             {
                 ModelTransformLibrary.RemovePixelsFromTempBlob(model, pixels);
+                modelManager.ModelChanged();
+            }
+            else if(component.Select.IsChecked==true)
+            {
+                var selected = ModelTransformLibrary.GetBlobsHighlighted(model, position);
+                if(selected.Count==0)
+                {
+                    model.SelectedBlobs.Clear();
+                }
+                else foreach(var b in selected)
+                {
+                    if(!model.SelectedBlobs.Contains(b))
+                    {
+                        model.SelectedBlobs.Add(b);
+                    }
+                }
                 modelManager.ModelChanged();
             }
         }

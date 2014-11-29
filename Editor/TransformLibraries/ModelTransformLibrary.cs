@@ -83,17 +83,6 @@ namespace SoftwareArchitecturesHomework.Editor.TransformLibraries
             return model;
         }
 
-        public static IList<WriteableBitmap> MergeBlobs(IList<WriteableBitmap> blobs)
-        {
-            if (blobs.Count < 1) return null;
-
-            IList<WriteableBitmap> ret = new List<WriteableBitmap>();
-            var wb = new WriteableBitmap(blobs.First());
-
-
-            return ret;
-        }
-
         public static IModel EditBlob(IModel model, WriteableBitmap blob)
         {
             model.Blobs.Remove(blob);
@@ -117,7 +106,7 @@ namespace SoftwareArchitecturesHomework.Editor.TransformLibraries
 
 
 
-        public static IList<WriteableBitmap> GetBlobsSelected(IModel model, Point pixel)
+        public static IList<WriteableBitmap> GetBlobsHighlighted(IModel model, Point pixel)
         {
             var ret = new List<WriteableBitmap>();
             foreach(var b in model.Blobs)
@@ -128,6 +117,28 @@ namespace SoftwareArchitecturesHomework.Editor.TransformLibraries
                     ret.Add(b);
                 }
             }
+            return ret;
+        }
+
+        public static WriteableBitmap MergeBlobs(IList<WriteableBitmap> selected)
+        {
+            if (selected.Count == 0) { return null; }
+            
+            WriteableBitmap ret=new WriteableBitmap(selected[0]);
+            int h = ret.PixelHeight;
+            int w = ret.PixelWidth;
+            int[] retPixelData = new int[w * h];
+            foreach(var wb in selected)
+            {
+                int[] pixelData = new int[w * h];
+                int widthInByte = 4 * w;
+                wb.CopyPixels(pixelData, widthInByte, 0);
+                for(int i=0; i<w*h; i++)
+                {
+                    retPixelData[i] |= pixelData[i];
+                }
+            }
+            ret.WritePixels(new Int32Rect(0,0,w,h),retPixelData, 4 * w, 0);
             return ret;
         }
     }
